@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para o Amor da Minha Vida 💖</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: radial-gradient(circle at top left, #ffb6c1, #ff69b4);
+      overflow: hidden;
+      font-family: 'Comic Sans MS', cursive;
+      text-align: center;
+      color: white;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 6s linear infinite;
+    }
+    .heart::before, .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+    .heart::before { top: -10px; left: 0; }
+    .heart::after { top: 0; left: -10px; }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) rotate(45deg); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-10vh) rotate(45deg); opacity: 0; }
+    }
+
+    .container {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+    }
+
+    .photo {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid white;
+      box-shadow: 0 0 20px white;
+    }
+
+    .message {
+      margin-top: 20px;
+      font-size: 22px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+    }
+
+    #startButton {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 105, 180, 0.8);
+      color: white;
+      font-size: 26px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 5;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <audio id="bgMusic" loop>
+    <source src="teste.mp3" type="audio/mpeg">
+  </audio>
+
+  <div id="startButton">💖 Clica para começar 💖</div>
+
+  <div class="container">
+    <img src="IMG-20250720-WA0034.jpg" alt="Foto de nós" class="photo">
+    <div class="message">
+      <p>Nestes últimos 8 meses ao teu lado, vivi os momentos mais genuínos, felizes e intensos da minha vida. Cada riso teu, cada abraço, cada conversa — tudo contigo tem um significado diferente, mais bonito, mais verdadeiro.
+        Obrigado por me dares tanto amor, paciência e carinho. Por me fazeres sentir em casa mesmo longe de tudo, por seres o meu porto seguro nos dias bons e maus.
+        És, sem dúvida, o amor da minha vida. E não há dia que passe em que não me sinta grato por te ter comigo. Que venham muitos mais meses, anos e histórias — porque tudo contigo vale a pena. ❤️</p>
+    </div>
+  </div>
+
+  <script>
+    // gerar corações
+    for (let i = 0; i < 30; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (4 + Math.random() * 3) + 's';
+      heart.style.opacity = Math.random();
+      document.body.appendChild(heart);
+    }
+
+    // tocar música ao clicar
+    document.getElementById("startButton").addEventListener("click", function() {
+      document.getElementById("bgMusic").play();
+      this.style.display = "none";
+    });
+  </script>
+</body>
+</html>
